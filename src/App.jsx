@@ -1,24 +1,17 @@
+import React from "react";
+import "./index.css"
 
+// import Loging from "./components/Loging";
+import Footer from "./components/Footer";
 
-import './App.css'
-import React from 'react';
-import Navbar from './components/Navbar.jsx';
-
-function App() {
-
-
+const App = () => {
   return (
-     <><Navbar /></>
-    
-    
-      
-    
+    <div>
+      {/* <Loging /> */}
+      <Footer />
+    </div>
 
-          
-    
-          
-    
-  )
-}
+  );
+};
 
-export default App
+export default App;
