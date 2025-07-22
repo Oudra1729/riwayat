@@ -1,14 +1,15 @@
 
-import Homepage from './components/Hompage';
-
+import Homepage from "./components/hompage";
+import Navbar from "./components/Navbar";
 
 const App = () => {
  
   
   return (
-    <Homepage
-    
-    />
+    <>
+      <Navbar />
+      <Homepage/>
+    </>  
   );
 };
 
