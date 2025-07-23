@@ -1,5 +1,5 @@
 
-import Homepage from "./components/hompage";
+import Homepage from "./components/Hompage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
