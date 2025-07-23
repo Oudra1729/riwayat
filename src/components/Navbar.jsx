@@ -12,7 +12,7 @@ const Navbar = () => {
           
    
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold text-emerald-600">RIWAYAT</a>
+            <a href="/home" className="text-2xl font-bold text-emerald-600">RIWAYAT</a>
           </div>
 
           <div className="flex-1 mx-4 hidden md:flex justify-center">
@@ -25,13 +25,13 @@ const Navbar = () => {
 
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex space-x-4">
-              <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Home</a>
+              <a href="/home" className="text-gray-700 hover:text-emerald-600 transition">Home</a>
               <a href="#" className="text-gray-700 hover:text-emerald-600 transition">About</a>
               {/* <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Services</a> */}
-              <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Contact</a>
+              <a href="/Contatus" className="text-gray-700 hover:text-emerald-600 transition">Contact</a>
             </div>
             <a
-              href="./Loging.jsx"
+              href="/login"
               className="text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm transition"
             >
               Login
