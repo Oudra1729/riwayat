@@ -1,6 +1,7 @@
 
 import Homepage from "./components/hompage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
  
@@ -9,6 +10,7 @@ const App = () => {
     <>
       <Navbar />
       <Homepage/>
+      <Footer />
     </>  
   );
 };

@@ -4,7 +4,7 @@ import React from 'react';
 const Homepage = () => {
   return (
     <>
-      <div className="bg-gradient-to-r from-orange-400 to-red-400 rounded-2xl p-8 mb-8 text-white">
+      <div className="bg-gradient-to-r from-green-300 to-red-400 rounded-2xl p-8 mb-8 text-white">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold mb-4">Discover New Books Every Day</h1>
           <p className="text-lg mb-6 opacity-90">
@@ -60,15 +60,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* No books fallback - shown as example */}
-      {/* Uncomment the below block to simulate "no books found" message */}
-      {/*
-      <div className="text-center py-12">
-        <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-600 mb-2">No books found</h3>
-        <p className="text-gray-500">Try adjusting your search criteria</p>
-      </div>
-      */}
+     
     </>
   );
 };
