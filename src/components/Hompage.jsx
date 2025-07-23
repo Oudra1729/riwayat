@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import BookCard from "./BookCard";
+import BookDetail from "./BookDetail";
 
 const Homepage = () => {
   const [novels, setNovels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedBook, setSelectedBook] = useState(null);
 
   const [genreFilter, setGenreFilter] = useState("All Genres");
   const [sortOption, setSortOption] = useState("Latest");
@@ -59,18 +62,16 @@ const Homepage = () => {
       </div>
 
       <div className="flex flex-wrap gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
-        <div className="flex items-center gap-2">
-          <select
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            value={genreFilter}
-            onChange={(e) => setGenreFilter(e.target.value)}
-          >
-            <option>All Genres</option>
-            <option>Fiction</option>
-            <option>Non-fiction</option>
-            <option>Romance</option>
-          </select>
-        </div>
+        <select
+          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          value={genreFilter}
+          onChange={(e) => setGenreFilter(e.target.value)}
+        >
+          <option>All Genres</option>
+          <option>Fiction</option>
+          <option>Non-fiction</option>
+          <option>Romance</option>
+        </select>
 
         <select
           className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -94,29 +95,30 @@ const Homepage = () => {
         {!loading &&
           !error &&
           sortedNovels.map((novel) => (
-            <div
+            <BookCard
               key={novel._id || novel.id}
-              className="bg-white p-4 rounded-lg shadow hover:shadow-md cursor-pointer"
-            >
-              {novel.image && (
-                <img
-                  src={novel.image}
-                  alt={novel.title}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                />
-              )}
-              <h2 className="text-lg font-semibold mb-2">{novel.title}</h2>
-              <p className="text-sm text-gray-600">
-                Genre: {novel.genre || "Unknown"}
-              </p>
-              <p className="text-sm text-gray-500 mt-2">
-                ⭐⭐⭐⭐☆ (120 reviews)
-              </p>
-            </div>
+              novel={novel}
+              onClick={() => setSelectedBook(novel)}
+            />
           ))}
       </div>
+
+      {selectedBook && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-4 rounded-lg shadow-lg max-w-3xl w-full relative">
+            <button
+              className="absolute top-2 right-2 text-red-600 font-bold text-xl"
+              onClick={() => setSelectedBook(null)}
+            >
+              ×
+            </button>
+            <BookDetail novel={selectedBook} />
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
 export default Homepage;
+  
