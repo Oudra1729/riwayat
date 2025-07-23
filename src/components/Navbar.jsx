@@ -31,7 +31,7 @@ const Navbar = () => {
               <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Contact</a>
             </div>
             <a
-              href="/login"
+              href="./Loging.jsx"
               className="text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm transition"
             >
               Login
