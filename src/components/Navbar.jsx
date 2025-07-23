@@ -10,12 +10,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* Left - Logo */}
+   
           <div className="flex-shrink-0">
             <a href="#" className="text-2xl font-bold text-emerald-600">RIWAYAT</a>
           </div>
 
-          {/* Center - Search Bar */}
           <div className="flex-1 mx-4 hidden md:flex justify-center">
             <input
               type="text"
@@ -24,12 +23,11 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Right - Links & Login */}
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex space-x-4">
               <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Home</a>
               <a href="#" className="text-gray-700 hover:text-emerald-600 transition">About</a>
-              <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Services</a>
+              {/* <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Services</a> */}
               <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Contact</a>
             </div>
             <a
@@ -66,10 +64,10 @@ const Navbar = () => {
           />
           <a href="#" className="block text-gray-700 hover:text-emerald-600">Home</a>
           <a href="#" className="block text-gray-700 hover:text-emerald-600">About</a>
-          <a href="#" className="block text-gray-700 hover:text-emerald-600">Services</a>
+          {/* <a href="#" className="block text-gray-700 hover:text-emerald-600">Services</a> */}
           <a href="#" className="block text-gray-700 hover:text-emerald-600">Contact</a>
           <a
-            href="/login"
+            href=""
             className="block text-center text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm"
           >
             Login
