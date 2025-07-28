@@ -33,8 +33,7 @@
 
 ## Overview
 
-Riwayat is a developer-focused toolkit that streamlines the setup of modern React web applications, combining fast build tools, utility-first styling, and best practices for maintainability.
-
+Riwayat is a
 ### Why Riwayat?
 
 This project aims to simplify and accelerate the development of scalable React applications. The core features include:
