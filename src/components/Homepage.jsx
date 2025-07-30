@@ -10,9 +10,11 @@ const Homepage = () => {
 
   const [genreFilter, setGenreFilter] = useState("All Genres");
   const [sortOption, setSortOption] = useState("Latest");
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/novels")
+    fetch("/data.json")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch novels");
         return res.json();
@@ -27,16 +29,20 @@ const Homepage = () => {
       });
   }, []);
 
-  const filteredNovels =
-    genreFilter === "All Genres"
-      ? novels
-      : novels.filter((novel) =>
-          novel.genre ? novel.genre === genreFilter : false
-        );
+  const filteredNovels = novels.filter((novel) => {
+  const matchesGenre =
+    genreFilter === "All Genres" || novel.genre === genreFilter;
+
+  const matchesTitle = novel.title
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+
+  return matchesGenre && matchesTitle;
+});
 
   const sortedNovels = filteredNovels.slice().sort((a, b) => {
     if (sortOption === "Latest") {
-      return new Date(b.createdAt) - new Date(a.createdAt);
+      return b.id - a.id; // نرتبو حسب id (من الكبير للصغير)
     }
     if (sortOption === "Most Popular") {
       return (b.popularity || 0) - (a.popularity || 0);
@@ -62,27 +68,43 @@ const Homepage = () => {
       </div>
 
       <div className="flex flex-wrap gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
-        <select
-          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          value={genreFilter}
-          onChange={(e) => setGenreFilter(e.target.value)}
-        >
-          <option>All Genres</option>
-          <option>Fiction</option>
-          <option>Non-fiction</option>
-          <option>Romance</option>
-        </select>
+        
+      <input
+    type="text"
+    placeholder="🔍 ابحث بالعنوان..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 w-full md:w-1/3"
+  />
 
-        <select
-          className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-        >
-          <option>Latest</option>
-          <option>Most Popular</option>
-          <option>Highest Rated</option>
-        </select>
-      </div>
+  <select
+    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+    value={genreFilter}
+    onChange={(e) => setGenreFilter(e.target.value)}
+  >
+    <option>All Genres</option>
+    <option>Mystery</option>
+    <option>Romance</option>
+    <option>Adventure</option>
+    <option>Drama</option>
+    <option>Science Fiction</option>
+    <option>Thriller</option>
+    <option>Fantasy</option>
+
+  </select>
+
+  <select
+    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+    value={sortOption}
+    onChange={(e) => setSortOption(e.target.value)}
+  >
+    <option>Latest</option>
+    <option>Most Popular</option>
+    <option>Highest Rated</option>
+  </select>
+</div>
+        
+      
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {loading && <p>Loading novels...</p>}
