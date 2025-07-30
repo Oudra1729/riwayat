@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,10 +10,8 @@ const Navbar = () => {
     <nav className="bg-white shadow-md w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          
-   
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold text-emerald-600">RIWAYAT</a>
+            <Link to="/" className="text-2xl font-bold text-emerald-600">RIWAYAT</Link>
           </div>
 
           <div className="flex-1 mx-4 hidden md:flex justify-center">
@@ -25,19 +24,17 @@ const Navbar = () => {
 
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex space-x-4">
-              <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Home</a>
-              <a href="#" className="text-gray-700 hover:text-emerald-600 transition">About</a>
-              {/* <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Services</a> */}
-              <a href="#" className="text-gray-700 hover:text-emerald-600 transition">Contact</a>
+              <Link to="/" className="text-gray-700 hover:text-emerald-600 transition">Home</Link>
+              <Link to="/about" className="text-gray-700 hover:text-emerald-600 transition">About</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-emerald-600 transition">Contact</Link>
             </div>
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm transition"
             >
               Login
-            </a>
+            </Link>
 
-            {/* Mobile Menu Toggle */}
             <div className="md:hidden">
               <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +51,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
           <input
@@ -62,16 +58,15 @@ const Navbar = () => {
             placeholder="Search..."
             className="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
-          <a href="#" className="block text-gray-700 hover:text-emerald-600">Home</a>
-          <a href="#" className="block text-gray-700 hover:text-emerald-600">About</a>
-          {/* <a href="#" className="block text-gray-700 hover:text-emerald-600">Services</a> */}
-          <a href="#" className="block text-gray-700 hover:text-emerald-600">Contact</a>
-          <a
-            href=""
+          <Link to="/" className="block text-gray-700 hover:text-emerald-600">Home</Link>
+          <Link to="/about" className="block text-gray-700 hover:text-emerald-600">About</Link>
+          <Link to="/contact" className="block text-gray-700 hover:text-emerald-600">Contact</Link>
+          <Link
+            to="/login"
             className="block text-center text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm"
           >
             Login
-          </a>
+          </Link>
         </div>
       )}
     </nav>

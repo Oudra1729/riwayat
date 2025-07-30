@@ -1,12 +1,12 @@
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/Loging";
 
 const App = () => {
   return (
-    <Router>
+    <>
       <Navbar />
 
       <Routes>
@@ -15,7 +15,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-    </Router>
+    </>
   );
 };
 
