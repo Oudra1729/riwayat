@@ -28,12 +28,13 @@ const Navbar = () => {
               <Link to="/about" className="text-gray-700 hover:text-emerald-600 transition">About</Link>
               <Link to="/contact" className="text-gray-700 hover:text-emerald-600 transition">Contact</Link>
             </div>
-            <Link
-              to="/login"
-              className="text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm transition"
-            >
-              Login
-            </Link>
+
+          <Link
+            to="/login"
+            className="text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm transition">
+            Login
+          </Link>
+
 
             <div className="md:hidden">
               <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
