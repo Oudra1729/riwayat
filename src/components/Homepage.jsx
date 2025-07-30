@@ -12,7 +12,7 @@ const Homepage = () => {
   const [sortOption, setSortOption] = useState("Latest");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/novels")
+    fetch("/data.json")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch novels");
         return res.json();
